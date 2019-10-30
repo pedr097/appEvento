@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController, ToastController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
 import { AuthenticationService } from 'src/app/shared/authentication.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -12,10 +12,10 @@ import { first } from 'rxjs/operators';
 })
 export class LoginComponent implements OnInit {
 
-  rotaDefault = "/home";
+  rotaDefault = "menu/home";
   loginForm: FormGroup;
   
-  constructor( private menuCtrl: MenuController,
+  constructor(
     private authService: AuthenticationService,
     private route: Router,
     private _formBuilder: FormBuilder,
@@ -29,7 +29,6 @@ export class LoginComponent implements OnInit {
   }
 
   ionViewWillEnter() {
-    this.menuCtrl.enable(false);
   }
 
   entrar() {
@@ -42,9 +41,16 @@ export class LoginComponent implements OnInit {
         .pipe(first())
         .subscribe(
             data => {
-              if(data){
-                this.alerta('Bem vindo ' + this.authService.currentUserValue.nome)
-                this.route.navigate([this.rotaDefault]);
+              if(data != null){
+                console.log(data);
+                this.alerta('Bem vindo ' + this.authService.currentUserValue.nome);
+
+                if(data.descricaoGrupo==="ADMINISTRADOR"){
+                  this.route.navigate([this.rotaDefault + '/adm']);
+                }
+                else{
+                  this.route.navigate([this.rotaDefault + '/empresa']);
+                }
               }
               else{
                 this.alerta('Usuário ou senha incorretos')  

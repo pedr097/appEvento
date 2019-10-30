@@ -4,8 +4,13 @@ import { AuthGuard } from './shared/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: 'home/adm',
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
+    canActivate: [AuthGuard]
+  },
+  { 
+    path: 'home/empresa', 
+    loadChildren: () => import('./home/home-empresa/home-empresa.module').then(m => m.HomeEmpresaPageModule),
     canActivate: [AuthGuard]
   },
   {
@@ -13,9 +18,14 @@ const routes: Routes = [
     loadChildren: () => import('./list/list.module').then(m => m.ListPageModule),
     canActivate: [AuthGuard]
   },
+  { path: 'menu', 
+    loadChildren: () => import('./menu/menu.module').then(m => m.MenuPageModule) },
   {
     path: 'authentication',
     loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule)
+  },
+  { path: 'config/setor', 
+    loadChildren: () => import('./config/setor/setor.module').then(m => m.SetorPageModule)
   },
   {
     path: '**',

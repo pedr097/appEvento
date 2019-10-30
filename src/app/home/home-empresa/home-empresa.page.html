@@ -1,0 +1,72 @@
+<ion-header no-border>
+    <ion-toolbar style="background-color: #03A9F4; color: #FFFFFF;">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        Home
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content fullscreen>
+  
+      <ion-grid *ngIf="user" style="height: 100%; background-color: #03A9F4; color: #FFFFFF; ">
+          <ion-row justify-content-center align-items-center style="height: 100%; font-weight: bold; font-size: 20pt;">
+              Bem vindo {{ user.nome }}
+          </ion-row>
+        </ion-grid>
+   
+  </ion-content>
+  
+  <ion-footer *ngIf="user" style="background-color: #448AFF;">
+      <ion-grid>
+          <ion-row>
+            <ion-col>
+              <button style="width: 100%; height: 120px; background-color: white; border-radius: 10px;">
+                      <ion-icon name="pin"></ion-icon> 
+                  <br>
+                  <label style="font-weight: bold; text-align: center;">{{ user.descricaoSetor }}</label>
+              </button>
+            </ion-col>
+            <ion-col>
+                <button style="width: 100%; height: 120px; background-color: white; border-radius: 10px;">
+                    <label style="font-size: 15pt; font-weight: bold;"><ion-icon name="contacts"></ion-icon> {{ data.qtd_passaram }} </label>
+                    <br><br>
+                    <label style="font-weight: bold; text-align: center;">Total já identificado</label>
+                </button>
+            </ion-col>
+            <ion-col>
+                <button style="width: 100%; height: 120px; background-color: white; border-radius: 10px;">
+                    <label style="font-size: 15pt; font-weight: bold;"><ion-icon name="contacts"></ion-icon> {{ data.qtd_atual }} </label>
+                    <br><br>
+                    <label style="font-weight: bold; text-align: center;">Total agora</label>
+                </button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col>
+                  <button style="width: 100%; height: 120px; background-color: white; border-radius: 10px;">
+                      <ion-icon name="bulb"></ion-icon>
+                      <br><br>
+                      <label style="font-weight: bold; text-align: center;">Detalhes</label>
+                  </button>
+              </ion-col>
+              <ion-col>
+                  <button style="width: 100%; height: 120px; background-color: white; border-radius: 10px;">
+                    <ion-icon name="happy"></ion-icon>
+                      <br><br>
+                      <label style="font-weight: bold; text-align: center;">Rank presença</label>
+                  </button>
+              </ion-col>
+              <ion-col>
+                  <button style="width: 100%; height: 120px; background-color: white; border-radius: 10px;">
+                      <ion-icon name="information"></ion-icon>
+                      <br><br>
+                      <label style="font-weight: bold; text-align: center;">Minhas informações</label>
+                  </button>
+              </ion-col>
+            </ion-row>
+        </ion-grid>
+  </ion-footer>
+  

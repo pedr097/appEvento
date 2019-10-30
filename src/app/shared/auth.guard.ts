@@ -22,8 +22,8 @@ export class AuthGuard implements CanActivate {
 
     canActivate() {
         const currentUser = this.authenticationService.currentUserValue;
-        console.log(currentUser);
-        if (currentUser) {
+        console.log('asd' + currentUser);
+        if (currentUser != null) {
             // logged in so return true
             console.log("esta logado");
             return true;
@@ -37,35 +37,4 @@ export class AuthGuard implements CanActivate {
         return false;
     }
 
-    canActivateChild() {
-        const currentUser = this.authenticationService.currentUserValue;
-        if (currentUser) {
-            // logged in so return true
-            console.log("esta logado");
-            return true;
-        }
-
-        console.log("nao está logado");
-        // not logged in so redirect to login page with the return url
-        this.router.navigate(
-            [this.rotaDefault] /*, { queryParams: { returnUrl: state.url } }*/
-        );
-        return false;
-    }
-
-    canLoad() {
-        const currentUser = this.authenticationService.currentUserValue;
-        if (currentUser) {
-            // logged in so return true
-            console.log("esta logado");
-            return true;
-        }
-
-        console.log("nao está logado");
-        // not logged in so redirect to login page with the return url
-        this.router.navigate(
-            [this.rotaDefault] /*, { queryParams: { returnUrl: state.url } }*/
-        );
-        return false;
-    }
 }
