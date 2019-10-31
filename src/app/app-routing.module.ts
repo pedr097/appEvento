@@ -27,10 +27,17 @@ const routes: Routes = [
   { path: 'config/setor', 
     loadChildren: () => import('./config/setor/setor.module').then(m => m.SetorPageModule)
   },
+  { path: 'setores-info', 
+    loadChildren: () => import('./setor-detail/list-setor/list-setor.module').then(m => m.ListSetorPageModule)
+  },
+  { path: 'setor-pessoas/:idSetor', 
+    loadChildren: () => import('./setor-detail/list-setor-pessoas/list-setor-pessoas.module').then(m => m.ListSetorPessoasPageModule)
+  },
   {
     path: '**',
     redirectTo: 'authentication/login'
   }
+
 ];
 
 @NgModule({

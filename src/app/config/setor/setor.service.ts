@@ -47,4 +47,28 @@ export class SetorService {
             });
         });
     }
+
+    getDadosSetores(): Promise<any> {
+        return new Promise((resolve, reject) => {
+            this.http.get(`${environment.apiUrl}/Setor/sp_QtdPessoasSetor`).subscribe((response: any) => {
+                this.data = response;
+                this.onDataChanged.next(this.data);
+                resolve(response);
+            }, erro =>{
+                reject(erro)
+            });
+        });
+    }
+
+    getPessoasSetor(id: string): Promise<any> {
+        return new Promise((resolve, reject) => {
+            this.http.get(`${environment.apiUrl}/Setor/sp_PessoasSetor?idSetor=${id}`).subscribe((response: any) => {
+                this.data = response;
+                this.onDataChanged.next(this.data);
+                resolve(response);
+            }, erro =>{
+                reject(erro)
+            });
+        });
+    }
 }
