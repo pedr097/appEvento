@@ -30,7 +30,10 @@ const routes: Routes = [
   { path: 'setores-info', 
     loadChildren: () => import('./setor-detail/list-setor/list-setor.module').then(m => m.ListSetorPageModule)
   },
-  { path: 'setor-pessoas/:idSetor', 
+  { path: 'menu/setores-info', 
+    loadChildren: () => import('./setor-detail/list-setor/list-setor.module').then(m => m.ListSetorPageModule)
+  },
+  { path: 'menu/setor-pessoas/:idSetor', 
     loadChildren: () => import('./setor-detail/list-setor-pessoas/list-setor-pessoas.module').then(m => m.ListSetorPessoasPageModule)
   },
   {

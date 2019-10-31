@@ -1,12 +1,17 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Informação Setores</ion-title>
+<ion-header no-border>
+  <ion-toolbar style="background-color: #03A9F4; color: #FFFFFF;">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Informações Setores
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
 
-  <ion-card *ngFor="let setor of listSetor" routerLink="/setor-pessoas/{{setor.idSetor}}">
+  <ion-card *ngFor="let setor of listSetor" routerLink="/menu/setor-pessoas/{{setor.idSetor}}">
     <ion-card-header>
       <ion-card-title>{{setor.setor}}</ion-card-title>
       <ion-card-subtitle *ngIf="setor.qtdPessoas == 1">{{setor.qtdPessoas}} pessoa presente</ion-card-subtitle>

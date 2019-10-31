@@ -34,6 +34,16 @@ const routes: Routes = [
         loadChildren: () => import('../config/setor/setor.module').then(m => m.SetorPageModule),
         canActivate: [AuthGuard]
       },
+      {
+        path: 'setores-info',
+        loadChildren: () => import('../setor-detail/list-setor/list-setor.module').then(m => m.ListSetorPageModule),
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'setor-pessoas/:idSetor',
+        loadChildren: () => import('../setor-detail/list-setor-pessoas/list-setor-pessoas.module').then(m => m.ListSetorPessoasPageModule),
+        canActivate: [AuthGuard]
+      },
     ]
   }
 ];

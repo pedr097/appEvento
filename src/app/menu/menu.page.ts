@@ -54,7 +54,7 @@ export class MenuPage {
     if(this.authService.currentUserValue.descricaoGrupo === "ADMINISTRADOR"){
       this.pages = [
         { title: 'Home', url: '/menu/home/adm', icon: 'home'},
-        { title: 'Informações setores', url: '/menu/home/adm', icon: 'home'},
+        { title: 'Informações setores', url: '/menu/setores-info', icon: 'home'},
         { title: 'Detalhes', url: 'home/adm', icon: 'home'},
         { title: 'Rastrear participante', url: 'home/adm', icon: 'home'},
         { title: 'Configurações', children: [
