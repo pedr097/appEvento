@@ -30,9 +30,10 @@ export class AuthenticationService {
                 console.log(user);
                 if (user) {
                     // armazena detalhes do usuário e credenciais básicas de autenticação no armazenamento local para manter o usuário logado entre as atualizações da página
-                    console.log(JSON.stringify(user));
+                    //console.log(JSON.stringify(user));
                     localStorage.setItem('currentUser', JSON.stringify(user));
                     this.currentUserSubject.next(user);
+                    console.log(this.currentUserSubject.value);
                 }
 
                 return user;
