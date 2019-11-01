@@ -12,7 +12,7 @@ import { first } from 'rxjs/operators';
 })
 export class LoginComponent implements OnInit {
 
-  rotaDefault = "menu/home";
+  rotaDefault = "/menu/home";
   loginForm: FormGroup;
   
   constructor(
@@ -44,11 +44,11 @@ export class LoginComponent implements OnInit {
               if(data != null){
                 console.log(data);
                 this.alerta('Bem vindo ' + this.authService.currentUserValue.nome);
-
                 if(data.descricaoGrupo==="ADMINISTRADOR"){
                   this.route.navigate([this.rotaDefault + '/adm']);
                 }
                 else{
+                  console.log(this.rotaDefault + '/empresa');
                   this.route.navigate([this.rotaDefault + '/empresa']);
                 }
               }

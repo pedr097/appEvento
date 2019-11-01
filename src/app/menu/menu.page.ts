@@ -13,7 +13,7 @@ export class MenuPage {
   pages = [
     {
       title: 'Home',
-      url: 'home/empresa',
+      url: '/menu/home/empresa',
       icon: 'home'
     },
     {
@@ -56,7 +56,7 @@ export class MenuPage {
         { title: 'Home', url: '/menu/home/adm', icon: 'home'},
         { title: 'Informações setores', url: '/menu/setores-info', icon: 'home'},
         { title: 'Detalhes', url: 'home/adm', icon: 'home'},
-        { title: 'Rastrear participante', url: 'home/adm', icon: 'home'},
+        { title: 'Rastrear participante', url: '/menu/home/adm', icon: 'home'},
         { title: 'Configurações', children: [
           {
             title: 'Setores',
@@ -65,12 +65,12 @@ export class MenuPage {
           },
           {
             title: 'Empresas',
-            url: '/home/adm',
+            url: '/menu//home/adm',
             icon: 'contacts'
           },
           {
             title: 'Antenas',
-            url: '/home/adm',
+            url: '/menu/home/adm',
             icon: 'contacts'
           }
         ]}
@@ -78,10 +78,10 @@ export class MenuPage {
     }
     else{
       this.pages = [
-        { title: 'Home', url: 'home/empresa', icon: 'home'},
-        { title: 'Detalhes', url: 'home/empresa', icon: 'home'},
-        { title: 'Minhas informações', url: 'home/empresa', icon: 'home'},
-        { title: 'Rank presença', url: 'home/empresa', icon: 'home'},
+        { title: 'Home', url: '/menu/home/empresa', icon: 'home'},
+        { title: 'Detalhes', url: '/menu/home/empresa', icon: 'home'},
+        { title: 'Minhas informações', url: '/menu/home/empresa', icon: 'home'},
+        { title: 'Rank presença', url: '/menu/home/empresa', icon: 'home'},
       ];
     }
   }
