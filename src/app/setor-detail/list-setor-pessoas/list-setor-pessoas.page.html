@@ -10,9 +10,19 @@
   </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let pessoa of listPessoasSetor">
-      <ion-label>{{pessoa.cliente}}</ion-label>
-    </ion-item>
+
+  <ion-list class="ios list-ios hydrated">
+    <ion-item class="item-label item ios in-list ion-focusable hydrated" *ngFor="let pessoa of listPessoasSetor">
+      <ion-avatar slot="start" class="ios hydrated">
+        <img src="../../../assets/iconUser/IconUser.png">
+      </ion-avatar>
+      <ion-label class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated">
+        <h1>{{pessoa.cliente}}</h1>
+        <h3>{{pessoa.idade}} anos</h3>
+        <p >{{pessoa.profissao}}  {{pessoa.cidade}}</p>
+        <p></p>
+      </ion-label>
+    </ion-item>  
   </ion-list>
+
 </ion-content>
