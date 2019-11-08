@@ -48,6 +48,18 @@ export class SetorService {
         });
     }
 
+    getListaConfigDetalhe(idSetor: number): Promise<any> {
+        return new Promise((resolve, reject) => {
+            this.http.get(`${environment.apiUrl}/Setor/ListaConfigDetalhe?idSetor=${idSetor}`).subscribe((response: any) => {
+                this.data = response;
+                //this.onDataChanged.next(this.data);
+                resolve(response);
+            }, reject =>{
+                console.log(reject);
+            });
+        });
+    }
+
     getDadosSetores(): Promise<any> {
         return new Promise((resolve, reject) => {
             this.http.get(`${environment.apiUrl}/Setor/sp_QtdPessoasSetor`).subscribe((response: any) => {

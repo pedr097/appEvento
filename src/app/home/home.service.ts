@@ -28,7 +28,7 @@ export class HomeService {
         return new Promise((resolve, reject) => {
             this.http.post(`${environment.apiUrl}/Setor/DadosSetor`, id).subscribe((response: any) => {
                 this.data = response;
-                this.onDataChanged.next(this.data);
+                //this.onDataChanged.next(this.data);
                 resolve(response);
             }, reject =>{
                 console.log(reject);

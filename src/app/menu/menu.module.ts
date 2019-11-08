@@ -6,19 +6,22 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { MenuPage } from './menu.page';
-import { AuthGuard } from '../shared/auth.guard';
 import { AuthenticationService } from '../shared/authentication.service';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/menu/home/adm',
-    pathMatch: 'full'
+    redirectTo: '/menu/login',
+    pathMatch:'full'
   },
   {
     path: '',
     component: MenuPage,
     children: [
+      {
+        path: 'login',
+        loadChildren: () => import('../authentication/login/login.module').then(m => m.LoginPageModule)
+      },
       {
         path: 'home/adm',
         loadChildren: () => import('../home/home.module').then(m => m.HomePageModule),
@@ -30,6 +33,10 @@ const routes: Routes = [
       {
         path: 'config/setor',
         loadChildren: () => import('../config/setor/setor.module').then(m => m.SetorPageModule),
+      },
+      {
+        path: 'config/setor/:idSetor',
+        loadChildren: () => import('../config/add-edit-setor/add-edit-setor.module').then(m => m.AddEditSetorPageModule),
       },
       {
         path: 'setores-info',
@@ -52,8 +59,7 @@ const routes: Routes = [
   ],
   declarations: [MenuPage],
   providers: [
-    AuthGuard,
-    AuthenticationService
+      AuthenticationService
   ]
 })
 export class MenuPageModule {}

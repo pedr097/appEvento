@@ -7,6 +7,7 @@ import { HomeService } from './home.service';
 import { DadosSetor } from './dadosSetor.model';
 import { Subscription, Observable } from 'rxjs';
 import { interval } from 'rxjs';
+import { MenuService } from '../menu/menu.service';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +16,7 @@ import { interval } from 'rxjs';
 })
 export class HomePage {
 
+  page: any[]
   user: Usuario;
   data: DadosSetor;
   updateSubscription: Subscription;
@@ -25,25 +27,32 @@ export class HomePage {
     private authService: AuthenticationService,
     private route: Router,
     private menuCtrl: MenuController,
-    private _homeService: HomeService
+    private _homeService: HomeService,
+    private _menuService: MenuService
   ) {
     this.data = new DadosSetor();
   }
 
   ionViewWillEnter() {
+    this.menuCtrl.enable(true);
+    this.carregaMenu();
     this.user = this.authService.currentUserValue;
-    console.log('asdas' + this.user);
 
     this.updateSubscription = interval(1000).subscribe(
      (val) => {
        this.carregaDados();
      });
+
+  }
+
+  carregaMenu(){
+      this._menuService.setPage(this.authService.currentUserValue.descricaoGrupo);
   }
 
   ionViewWillLeave() {
     if (this.updateSubscription) {
       this.updateSubscription.unsubscribe();
-      this._homeService.onDataChanged.next(false);
+      //this._homeService.onDataChanged.next(false);
       this._homeService.data = null;
       console.log('destruido pelo ionViewWillLeave');
     }
@@ -52,9 +61,9 @@ export class HomePage {
   ngOnDestroy(): void {
     if (this.updateSubscription) {
       this.updateSubscription.unsubscribe();
-      this._homeService.onDataChanged.next(false);
+      //this._homeService.onDataChanged.next(false);
       this._homeService.data = null;
-      console.log('destruido pelo ionViewWillLeave');
+      console.log('destruido pelo ngOnDestroy');
     }
 }
 
@@ -62,11 +71,6 @@ export class HomePage {
     this._homeService.getDadosGeral();
     console.log('ok');
     this.data = new DadosSetor(this._homeService.data);
-  }
-
-  logout(){
-    this.authService.logout();
-        this.route.navigate(["authentication/login"]);
   }
 
 }

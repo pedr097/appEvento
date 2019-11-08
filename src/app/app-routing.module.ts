@@ -4,18 +4,18 @@ import { AuthGuard } from './shared/auth.guard';
 import { AuthenticationService } from './shared/authentication.service';
 
 const routes: Routes = [
-  { path: 'menu', 
+  { 
+    path: 'menu', 
     loadChildren: () => import('./menu/menu.module').then(m => m.MenuPageModule),
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'authentication',
-    loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule)
   },
   {
     path: '**',
-    redirectTo: 'authentication/login'
+    redirectTo: 'menu/login',
+    pathMatch: 'full'
   }
+
+  //{ path: 'add-edit-setor', loadChildren: './config/add-edit-setor/add-edit-setor.module#AddEditSetorPageModule' }
+
 
 ];
 

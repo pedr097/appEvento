@@ -5,14 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { HomeEmpresaPage } from './home-empresa.page';
-import { AuthenticationService } from 'src/app/shared/authentication.service';
-import { AuthGuard } from 'src/app/shared/auth.guard';
+import { AddEditSetorPage } from './add-edit-setor.page';
 
 const routes: Routes = [
   {
-    path: '**',
-    component: HomeEmpresaPage
+    path: '',
+    component: AddEditSetorPage
   }
 ];
 
@@ -23,10 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [HomeEmpresaPage]/*,
-  providers: [
-    AuthGuard,
-    AuthenticationService,
-  ]*/
+  declarations: [AddEditSetorPage]
 })
-export class HomeEmpresaPageModule {}
+export class AddEditSetorPageModule {}

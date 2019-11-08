@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastController } from '@ionic/angular';
+import { ToastController, MenuController } from '@ionic/angular';
 import { AuthenticationService } from 'src/app/shared/authentication.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -7,11 +7,10 @@ import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.scss'],
 })
-export class LoginComponent implements OnInit {
-
+export class LoginPage implements OnInit {
   rotaDefault = "/menu/home";
   loginForm: FormGroup;
   
@@ -19,6 +18,7 @@ export class LoginComponent implements OnInit {
     private authService: AuthenticationService,
     private route: Router,
     private _formBuilder: FormBuilder,
+    private menuCtrl: MenuController,
     private toastController: ToastController) { }
 
   ngOnInit() {
@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
   }
 
   ionViewWillEnter() {
+    this.menuCtrl.enable(false);
   }
 
   entrar() {
@@ -48,7 +49,7 @@ export class LoginComponent implements OnInit {
                   this.route.navigate([this.rotaDefault + '/adm']);
                 }
                 else{
-                  console.log(this.rotaDefault + '/empresa');
+                  //console.log(this.rotaDefault + '/empresa');
                   this.route.navigate([this.rotaDefault + '/empresa']);
                 }
               }

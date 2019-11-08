@@ -7,6 +7,7 @@ import { HomeService } from '../home.service';
 import { DadosSetor } from '../dadosSetor.model';
 import { takeUntil } from 'rxjs/operators';
 import { Subject, Subscription, interval } from 'rxjs';
+import { MenuService } from 'src/app/menu/menu.service';
 
 @Component({
   selector: 'app-home-empresa',
@@ -22,12 +23,15 @@ export class HomeEmpresaPage {
   constructor(private authService: AuthenticationService,
     private route: Router,
     private menuCtrl: MenuController,
-    private _homeService: HomeService) { 
+    private _homeService: HomeService,
+    private _menuService: MenuService) { 
 
       this.data = new DadosSetor();
     }
 
     ionViewWillEnter() {
+      this.menuCtrl.enable(true);
+      this.carregaMenu();
       this.user = this.authService.currentUserValue;
       console.log(this.user);
 
@@ -43,6 +47,10 @@ export class HomeEmpresaPage {
       console.log('ok');
       this.data = new DadosSetor(this._homeService.data);
     }
+
+    carregaMenu(){
+      this._menuService.setPage(this.authService.currentUserValue.descricaoGrupo);
+  }
 
 
     ionViewWillLeave() {

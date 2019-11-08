@@ -23,10 +23,10 @@ const routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [HomePage],
+  declarations: [HomePage]/*,
   providers: [
     AuthGuard,
     AuthenticationService,
-  ]
+  ]*/
 })
 export class HomePageModule {}

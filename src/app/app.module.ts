@@ -11,7 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from './shared/auth.guard';
 import { AuthenticationService } from './shared/authentication.service';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule,
     IonicModule.forRoot(),
+    FormsModule,
     AppRoutingModule
   ],
   providers: [

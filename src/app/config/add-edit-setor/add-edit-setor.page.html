@@ -1,0 +1,39 @@
+<ion-header no-border>
+    <ion-toolbar style="background-color: #03A9F4; color: #FFFFFF;">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        {{title}}
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+    <ion-item>
+        <ion-label position="floating">Descrição</ion-label>
+        <ion-input type="text" [(ngModel)]="descricao" name="descricao"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">Abreviação</ion-label>
+        <ion-input type="text" [(ngModel)]="abreviacao" name="abreviacao"></ion-input>
+    </ion-item>
+
+    <br>
+    <div>
+        <ion-label>Antenas do setor</ion-label>
+        <ion-button>Adicionar Antena</ion-button>
+    </div>
+    <ion-item>
+        <ion-label>Antena 2</ion-label>
+        <ion-button slot="end" color="danger">
+            <ion-icon name="close" style="color: white;">close</ion-icon>
+        </ion-button>
+      </ion-item>
+      <ion-item>
+          <ion-label>Antena 1</ion-label>
+          <ion-button slot="end" color="danger">
+            <ion-icon name="close" style="color: white;">close</ion-icon>
+          </ion-button>
+        </ion-item>
+</ion-content>
