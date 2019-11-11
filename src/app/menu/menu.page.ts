@@ -4,6 +4,7 @@ import { AuthenticationService } from '../shared/authentication.service';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { MenuService } from './menu.service';
+import { Usuario } from '../shared/usuario.model';
 
 @Component({
   selector: 'app-menu',
@@ -44,6 +45,8 @@ export class MenuPage {
     }
   ];*/
 
+  user: Usuario
+
   constructor(private statusBar: StatusBar,
     private authService: AuthenticationService,
     private route: Router,
@@ -52,7 +55,8 @@ export class MenuPage {
       
     this.statusBar.backgroundColorByHexString('#3980FE');
 
-    //console.log('CONSTRUTOR' + this.authService.currentUserValue);
+
+    console.log(this.user);
   }
 
   ngOnInit() {
