@@ -14,6 +14,7 @@ const routes: Routes = [
     pathMatch: 'full'
   }
 
+
   //{ path: 'add-edit-setor', loadChildren: './config/add-edit-setor/add-edit-setor.module#AddEditSetorPageModule' }
 
 

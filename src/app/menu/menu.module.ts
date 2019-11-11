@@ -45,6 +45,14 @@ const routes: Routes = [
       {
         path: 'setor-pessoas/:idSetor',
         loadChildren: () => import('../setor-detail/list-setor-pessoas/list-setor-pessoas.module').then(m => m.ListSetorPessoasPageModule),
+      },
+      {
+        path: 'detalhes',
+        loadChildren: () => import('../grafico/grafico.module').then(m => m.GraficoPageModule),
+      },
+      {
+        path: 'detalhes/:idSetor',
+        loadChildren: () => import('../grafico/grafico.module').then(m => m.GraficoPageModule),
       }
     ]
   }

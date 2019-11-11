@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
+import { SetorService } from '../config/setor/setor.service';
+import { AuthenticationService } from '../shared/authentication.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MenuService {
 
+  idSetor
   page=[
     {
       title: 'Home',
@@ -37,14 +40,18 @@ export class MenuService {
       icon: 'construct'
     }
   ];
-  constructor() { }
+  constructor(
+    private _authService: AuthenticationService
+  ) { 
+    this.idSetor = _authService.currentUserValue.idSetor
+  }
 
   setPage(tipo: string){
       if(tipo === "ADMINISTRADOR"){
         this.page = [
           { title: 'Home', url: '/menu/home/adm', icon: 'home'},
           { title: 'Informações setores', url: '/menu/setores-info', icon: 'home'},
-          { title: 'Detalhes', url: 'home/adm', icon: 'home'},
+          { title: 'Detalhes', url: '/menu/detalhes', icon: 'home'},
           { title: 'Rastrear participante', url: '/menu/home/adm', icon: 'home'},
           { title: 'Configurações', children: [
             {
@@ -68,7 +75,7 @@ export class MenuService {
       else{
         this.page = [
           { title: 'Home', url: '/menu/home/empresa', icon: 'home'},
-          { title: 'Detalhes', url: '/menu/home/empresa', icon: 'home'},
+          { title: 'Detalhes', url: `/menu/detalhes/${this.idSetor}`, icon: 'home'},
           { title: 'Minhas informações', url: '/menu/home/empresa', icon: 'home'},
           { title: 'Rank presença', url: '/menu/home/empresa', icon: 'home'},
         ];

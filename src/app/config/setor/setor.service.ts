@@ -83,4 +83,28 @@ export class SetorService {
             });
         });
     }
+
+    getFaixaIdade(): Promise<any> {
+        return new Promise((resolve, reject) => {
+            this.http.get(`${environment.apiUrl}/Setor/sp_FaixaIdadeEvento`).subscribe((response: any) => {
+                this.data = response;
+                this.onDataChanged.next(this.data);
+                resolve(response);
+            }, erro =>{
+                reject(erro)
+            });
+        });
+    }
+
+    getFaixaIdadeSetor(id): Promise<any> {
+        return new Promise((resolve, reject) => {
+            this.http.get(`${environment.apiUrl}/Setor/sp_FaixaIdadeSetor?idSetor=${id}`).subscribe((response: any) => {
+                this.data = response;
+                this.onDataChanged.next(this.data);
+                resolve(response);
+            }, erro =>{
+                reject(erro)
+            });
+        });
+    }
 }
