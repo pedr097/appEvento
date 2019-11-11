@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
 import { SetorService } from '../setor/setor.service';
 import { Setor } from './setor.model';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-add-edit-setor',
@@ -21,7 +22,8 @@ export class AddEditSetorPage implements OnInit {
 
 
   constructor(private route: ActivatedRoute,
-    private _setorService: SetorService) { 
+    private _setorService: SetorService,
+    public alertController: AlertController) { 
 
     this.routeParam = this.route.snapshot.paramMap.get('idSetor')
     console.log(this.routeParam);
@@ -48,4 +50,30 @@ export class AddEditSetorPage implements OnInit {
   }
 
 
+  async presentAlertConfirm(idSetor: number, idAntena: number, antena: number) {
+    const alert = await this.alertController.create({
+      header: 'Exclusão de antena',
+      message: 'Deseja excluir a antena '+ antena.toString() +' ?',
+      buttons: [
+        {
+          text: 'Não',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            //this.voltar();//VOLTA PARA PAGINA
+          }
+        }, {
+          text: 'Sim',
+          handler: () => {
+            this.deleteAntena(idSetor, idAntena);//REALIZA A EMISSÃO DO QRCODE EM PDF
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+
+  deleteAntena(idSetor: number, idAntena: number){
+
+  }
 }
