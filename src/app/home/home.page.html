@@ -11,10 +11,15 @@
 
 <ion-content fullscreen>
 
-    <ion-grid *ngIf="user" style="height: 100%; background-color: #03A9F4; color: #FFFFFF; ">
-        <ion-row justify-content-center align-items-center style="height: 100%; font-weight: bold; font-size: 20pt;">
-            Bem vindo {{ user.nome }}
-        </ion-row>
+    <ion-grid *ngIf="user" style="height: 100%; background-color: #03A9F4; color: #FFFFFF; text-align: center;">
+      <ion-row justify-content-center align-items-center>
+        <div>
+            <img src="../../assets/icon/drawable-xxhdpi-icon.png">
+        </div>          
+      </ion-row>
+      <ion-row justify-content-center style="font-size:large" >
+          Bem vindo<b>&nbsp;{{ user.nome }}</b>
+      </ion-row>
       </ion-grid>
  
 </ion-content>
