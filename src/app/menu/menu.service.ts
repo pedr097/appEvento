@@ -7,7 +7,8 @@ import { AuthenticationService } from '../shared/authentication.service';
 })
 export class MenuService {
 
-  idSetor
+  idSetor: number;
+
   page=[
     {
       title: 'Home',
@@ -44,7 +45,7 @@ export class MenuService {
     private _authService: AuthenticationService
   ) {
     if(this._authService.currentUserValue)
-      this.idSetor = this._authService.currentUserValue.idSetor
+      this.idSetor = parseInt(this._authService.currentUserValue.idSetor);
   }
 
   setPage(tipo: string){
@@ -76,9 +77,9 @@ export class MenuService {
       else{
         this.page = [
           { title: 'Home', url: '/menu/home/empresa', icon: 'home'},
-          { title: 'Detalhes', url: `/menu/detalhes/${this.idSetor}`, icon: 'home'},
-          { title: 'Minhas informações', url: '/menu/home/empresa', icon: 'home'},
-          { title: 'Rank presença', url: '/menu/home/empresa', icon: 'home'},
+          { title: 'Detalhes', url: `/menu/detalhes/${this.idSetor}`, icon: 'stats'},
+          { title: 'Minhas informações', url: '/menu/home/empresa', icon: 'information-circle'},
+          { title: 'Rank presença', url: '/menu/home/empresa', icon: 'trophy'},
         ];
       }
   }

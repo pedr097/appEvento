@@ -27,6 +27,7 @@ export class HomeEmpresaPage {
     private _menuService: MenuService) { 
 
       this.data = new DadosSetor();
+      this._menuService.idSetor = parseInt(this.authService.currentUserValue.idSetor);
     }
 
     ionViewWillEnter() {
