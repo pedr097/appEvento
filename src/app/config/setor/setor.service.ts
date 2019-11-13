@@ -76,8 +76,7 @@ export class SetorService {
     getPessoasSetor(id: string): Promise<any> {
         return new Promise((resolve, reject) => {
             this.http.get(`${environment.apiUrl}/Setor/sp_PessoasSetor?idSetor=${id}`).subscribe((response: any) => {
-                this.data = response;
-                this.onDataChanged.next(this.data);
+                console.log(response);
                 resolve(response);
             }, erro =>{
                 reject(erro)
