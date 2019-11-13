@@ -42,32 +42,33 @@ export class MenuService {
   ];
   constructor(
     private _authService: AuthenticationService
-  ) { 
-    this.idSetor = _authService.currentUserValue.idSetor
+  ) {
+    if(this._authService.currentUserValue)
+      this.idSetor = this._authService.currentUserValue.idSetor
   }
 
   setPage(tipo: string){
       if(tipo === "ADMINISTRADOR"){
         this.page = [
           { title: 'Home', url: '/menu/home/adm', icon: 'home'},
-          { title: 'Informações setores', url: '/menu/setores-info', icon: 'home'},
-          { title: 'Detalhes', url: '/menu/detalhes', icon: 'home'},
-          { title: 'Rastrear participante', url: '/menu/home/adm', icon: 'home'},
+          { title: 'Informações setores', url: '/menu/setores-info', icon: 'information-circle'},
+          { title: 'Detalhes', url: '/menu/detalhes', icon: 'stats'},
+          { title: 'Rastrear participante', url: '/menu/home/adm', icon: 'pin'},
           { title: 'Configurações', children: [
             {
               title: 'Setores',
               url: '/menu/config/setor',
-              icon: 'contacts'
+              icon: 'switch'
             },
             {
               title: 'Empresas',
-              url: '/menu/home/adm',
+              url: '/menu/config/empresa',
               icon: 'contacts'
             },
             {
               title: 'Antenas',
               url: '/menu/home/adm',
-              icon: 'contacts'
+              icon: 'wifi'
             }
           ]}
         ];

@@ -5,13 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AddEditSetorPage } from './add-edit-setor.page';
-import { AddAntenaModalPage } from '../add-antena-modal/add-antena-modal.page';
+import { AddAntenaModalPage } from './add-antena-modal.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: AddEditSetorPage
+    component: AddAntenaModalPage
   }
 ];
 
@@ -22,7 +21,7 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [AddEditSetorPage, AddAntenaModalPage],
-  entryComponents: [AddAntenaModalPage]
+  declarations: [AddAntenaModalPage],
+  exports: [AddAntenaModalPage]
 })
-export class AddEditSetorPageModule {}
+export class AddAntenaModalPageModule {}

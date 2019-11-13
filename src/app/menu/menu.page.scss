@@ -1,0 +1,24 @@
+ion-toolbar {
+    --background: transparent;
+    --ion-color-base: transparent !important;
+    }
+  
+    ion-icon {
+      font-size: 30px; //Preferred size here
+      color: white;
+  }
+
+  ion-content{
+    --background: transparent;
+    --ion-color-base: transparent !important;
+  }
+
+  ion-label{
+      color:white;
+  }
+
+  ion-menu{
+    ion-content{
+        --ion-background-color:transparent;
+    }
+}

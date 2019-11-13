@@ -17,10 +17,10 @@
       </ion-fab-button>
   </ion-fab>
 
-  <ion-card *ngFor="let setor of data" routerLink="/menu/config/setor/{{setor.idSetor}}">
+  <ion-card *ngFor="let setor of data" (click)="exibeOpcoes(setor.idSetor)">
     <ion-card-header>
       <ion-card-title>{{setor.abreviacao}}</ion-card-title>
-      <ion-card-subtitle *ngIf="setor.qtdAntena == 1">{{setor.qtdAntena}} antena</ion-card-subtitle>
+      <ion-card-subtitle *ngIf="setor.qtdAntena <= 1">{{setor.qtdAntena}} antena</ion-card-subtitle>
       <ion-card-subtitle *ngIf="setor.qtdAntena > 1">{{setor.qtdAntena}} antenas</ion-card-subtitle>
     </ion-card-header>
   </ion-card>

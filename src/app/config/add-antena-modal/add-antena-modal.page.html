@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar style="background-color: #03A9F4; color: #FFFFFF;">
+      <ion-buttons slot="start">
+          <ion-button (click)="voltar()">
+            <ion-icon  name="arrow-round-back"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+    <ion-title>Nova antena</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+
+      <ion-list-header>
+          <h5><b>Selecione uma antena:</b></h5>
+      </ion-list-header>
+
+      <ion-item>
+          <ion-label>Antenas disponíveis</ion-label>
+          <ion-select placeholder="Selecione" [(ngModel)]="antenaSelect">
+            <ion-select-option *ngFor="let antena of antenasDisp" value="{{antena.id}}">
+              {{antena.antena}}
+            </ion-select-option>
+          </ion-select>
+      </ion-item>
+
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+
+    <ion-row no-padding text-center>
+
+        <ion-col size="6">
+                <ion-button expand="full" *ngIf="antenaSelect" color="success" (click)="salvar()">
+                    <ion-icon name="save" slot="start"></ion-icon>
+                    Adicionar
+                </ion-button>
+        </ion-col>
+
+    </ion-row>
+
+</ion-footer>

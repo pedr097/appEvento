@@ -1,0 +1,26 @@
+<ion-header no-border>
+  <ion-toolbar style="background-color: #03A9F4; color: #FFFFFF;">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Empresas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+      <ion-list-header>
+          <h5><b>LISTA DE EMPRESAS</b></h5>
+      </ion-list-header>
+    </ion-list>
+
+    <ion-item *ngFor="let item of (data)" (click)="exibeOpcoes(item.id)" fullscreen>
+      <ion-label>
+        <h2>{{ item.nome }}</h2>
+        <h3>{{ item.razao }}</h3>
+      </ion-label>
+    </ion-item>
+
+</ion-content>

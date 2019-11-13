@@ -1,0 +1,80 @@
+<ion-header no-border>
+    <ion-toolbar style="background-color: #03A9F4; color: #FFFFFF;">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        {{title}}
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content padding>
+
+    <form name="empresaForm" *ngIf="empresaForm" [formGroup]="empresaForm">
+      <ion-item>
+          <ion-label position="floating">Descrição</ion-label>
+          <ion-input type="text" formControlName="nomeEmpresa" name="nomeEmpresa"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label position="floating">Razão:</ion-label>
+          <ion-input type="text" formControlName="razaoEmpresa" name="razao"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label>Ramo</ion-label>
+            <ion-select placeholder="Selecione o setor" formControlName="ramoEmpresa">
+              <ion-select-option value="Educacional">Educacional</ion-select-option>
+              <ion-select-option value="Tecnológico">Tecnológico</ion-select-option>
+              <ion-select-option value="Saúde">Saúde</ion-select-option>
+              <ion-select-option value="Outro">Outro</ion-select-option>
+          </ion-select>
+      </ion-item>
+      <!--<ion-item>
+          <ion-label position="floating">Ramo:</ion-label>
+          <ion-input type="text" formControlName="ramoEmpresa" name="ramo"></ion-input>
+      </ion-item>-->
+      <ion-item>
+          <ion-label position="floating">Cidade:</ion-label>
+          <ion-input type="text" formControlName="cidadeEmpresa" name="cidade"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Setor</ion-label>
+          <ion-select placeholder="Selecione o setor" formControlName="idSetor">
+            <ion-select-option *ngFor="let setor of setores" [value]="setor.idSetor">
+              {{setor.abreviacao}}
+            </ion-select-option>
+          </ion-select>
+      </ion-item>
+      <ion-item>
+          <ion-label position="floating">Nome usuário:</ion-label>
+          <ion-input type="text" formControlName="nomeUsuario" name="nomeUser"></ion-input>
+      </ion-item>
+    </form>
+</ion-content>
+
+<ion-footer>
+
+    <div style="text-align: center;">
+    <ion-row no-padding text-center>
+        <ion-col size="6">
+            <ion-button expand="full" color="medium" (click)="voltar()">
+                <ion-icon name="arrow-round-back" slot="start" style="color:white"></ion-icon>
+                Voltar
+            </ion-button>
+        </ion-col>
+        <ion-col size="6" *ngIf="title==='Nova empresa'">
+            <ion-button expand="full" color="success" (click)="salvar()">
+                <ion-icon name="save" slot="start" style="color:white"></ion-icon>
+                Salvar
+            </ion-button>
+        </ion-col>
+
+        <ion-col size="6" *ngIf="title!=='Nova empresa'">
+                <ion-button expand="full" color="success" (click)="update()">
+                    <ion-icon name="save" slot="start" style="color:white"></ion-icon>
+                    Atualizar
+                </ion-button>
+        </ion-col>
+    </ion-row>
+  </div>
+</ion-footer>

@@ -53,6 +53,13 @@ const routes: Routes = [
       {
         path: 'detalhes/:idSetor',
         loadChildren: () => import('../grafico/grafico.module').then(m => m.GraficoPageModule),
+      },
+      { path: 'config/empresa', 
+        loadChildren: () => import('../config/empresa/empresa.module').then(m=> m.EmpresaPageModule) 
+      },
+      { 
+        path: 'config/empresa/:idEmpresa', 
+        loadChildren: () => import('../config/add-edit-empresa/add-edit-empresa.module').then(m=>m.AddEditEmpresaPageModule) 
       }
     ]
   }
