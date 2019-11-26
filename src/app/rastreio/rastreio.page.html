@@ -1,0 +1,51 @@
+<ion-header no-border>
+  <ion-toolbar style="background-color: #03A9F4; color: #FFFFFF;">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Rastreio 
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+        <ion-col size="9">
+          <ion-item>
+              <ion-label position="floating"></ion-label>
+              <ion-input type="text" placeholder="Nome do participante" [(ngModel)]="nome" name="nomeParticipante"></ion-input>
+          </ion-item>
+            
+        </ion-col>
+        <ion-col size="3">
+            <ion-button expand="full" color="success" [disabled]="!nome" (click)="buscar()">
+              <div style="text-align: center; justify-content: center;">
+                  <ion-icon name="search" slot="start" style="color:white"></ion-icon>
+              </div>
+            </ion-button>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-list>
+    <div *ngFor="let item of data">
+        <ion-item *ngIf="item.segundos > 10">
+            <ion-label *ngIf="item.dataFIM">
+              <h3>{{item.setor}}</h3>
+              <p >{{item.data | date:'dd/MM/yyyy, hh:mm:ss'}}</p>
+              <p>{{ item.segundos * 1000 | date:'HH:mm:ss':'UTC'}}</p>
+              <!--<p >{{item.segundos}}</p>-->
+            </ion-label>
+      
+            <ion-label *ngIf="item.dataFIM == null">
+                <h3>{{item.setor}}</h3>
+                <p >{{item.data | date:'dd/MM/yyyy, hh:mm:ss'}}</p>
+                <p >ATUAL</p>
+              </ion-label>
+            </ion-item>  
+    </div>
+  </ion-list>
+
+</ion-content>

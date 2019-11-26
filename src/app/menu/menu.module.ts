@@ -68,6 +68,10 @@ const routes: Routes = [
       { 
         path: 'config/antena', 
         loadChildren: () => import('../config/antena/antena.module').then(m=>m.AntenaPageModule) 
+      },
+      { 
+        path: 'rastreio', 
+        loadChildren: () => import('../rastreio/rastreio.module').then(m => m.RastreioPageModule)
       }
     ]
   }
