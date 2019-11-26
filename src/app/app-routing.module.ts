@@ -13,8 +13,7 @@ const routes: Routes = [
     redirectTo: 'menu/login',
     pathMatch: 'full'
   },
-  { path: 'add-antena-modal', loadChildren: './config/add-antena-modal/add-antena-modal.module#AddAntenaModalPageModule' },
-  { path: 'antena', loadChildren: './config/antena/antena.module#AntenaPageModule' }
+  { path: 'add-antena-modal', loadChildren: './config/add-antena-modal/add-antena-modal.module#AddAntenaModalPageModule' }
 
 
 

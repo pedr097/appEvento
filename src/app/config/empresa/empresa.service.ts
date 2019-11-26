@@ -46,11 +46,29 @@ export class EmpresaService {
         });
     }
 
+    salvarEmpresa(empresa: DtoEmpresa): Promise<any> {
+        return new Promise((resolve, reject) => {
+            this.http.post(`${environment.apiUrl}/Empresa/Grava`, empresa).subscribe((response: any) => {
+                resolve(response);
+            }, reject =>{
+                console.log(reject);
+            });
+        });
+    }
+
     updateEmpresa(empresa: DtoEmpresa): Promise<any> {
         return new Promise((resolve, reject) => {
             this.http.put(`${environment.apiUrl}/Empresa/spUpdate`, empresa).subscribe((response: any) => {
-                this.data = response;
-                this.onDataChanged.next(this.data);
+                resolve(response);
+            }, reject =>{
+                console.log(reject);
+            });
+        });
+    }
+
+    deleteEmpresa(idEmpresa: number): Promise<any> {
+        return new Promise((resolve, reject) => {
+            this.http.post(`${environment.apiUrl}/Empresa/Deleta`, idEmpresa).subscribe((response: any) => {
                 resolve(response);
             }, reject =>{
                 console.log(reject);

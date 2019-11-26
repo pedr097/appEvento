@@ -45,7 +45,7 @@ export class AddEditEmpresaPage implements OnInit {
       if(this.routeParam){
         if(this.routeParam==='new'){
           
-          this.title='Nova empresa ';
+          this.title='Nova empresa';
           this.dado = new DtoEmpresa();
           this.empresaForm = this.createEmpresaForm();
         }
@@ -77,8 +77,10 @@ export class AddEditEmpresaPage implements OnInit {
 }
 
   carregaSetores(){
-  this._setorService.getListaConfig().then(res=>{
-    this.setores=res;
+  this._setorService.getListaConfig().then(res =>{
+      this.setores = res.filter(function(n){
+        return n.descricao!='SAIDA';
+      });
     console.log(this.setores);
   },
   reject=>{
@@ -121,8 +123,20 @@ export class AddEditEmpresaPage implements OnInit {
 
 
   salvar(){
-    let data = this.empresaForm.getRawValue();
-    
+    if(this.empresaForm.valid){
+      let data = this.empresaForm.getRawValue();
+      console.log(data);
+      this._empresaService.salvarEmpresa(data).then(res=>{
+        this.alerta('Empresa cadastrada com sucesso');
+        this.router.navigate(['/menu/config/empresa']);
+      },
+      reject=>{
+      
+      });
+    }
+    else{
+      this.alerta('Preencha todos os campos obrigatórios');
+    }  
   }
 
   voltar(){

@@ -37,11 +37,9 @@ export class SetorService {
         });
     }
 
-    getListaConfig(): Promise<any> {
+    getListaConfig(): Promise<any[]> {
         return new Promise((resolve, reject) => {
-            this.http.get(`${environment.apiUrl}/Setor/ListaConfig`).subscribe((response: any) => {
-                this.data = response;
-                this.onDataChanged.next(this.data);
+            this.http.get(`${environment.apiUrl}/Setor/ListaConfig`).subscribe((response: any[]) => {
                 resolve(response);
             }, reject =>{
                 console.log(reject);

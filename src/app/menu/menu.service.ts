@@ -68,7 +68,7 @@ export class MenuService {
             },
             {
               title: 'Antenas',
-              url: '/menu/home/adm',
+              url: '/menu/config/antena',
               icon: 'wifi'
             }
           ]}

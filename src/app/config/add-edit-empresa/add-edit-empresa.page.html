@@ -14,7 +14,7 @@
     <form name="empresaForm" *ngIf="empresaForm" [formGroup]="empresaForm">
       <ion-item>
           <ion-label position="floating">Descrição</ion-label>
-          <ion-input type="text" formControlName="nomeEmpresa" name="nomeEmpresa"></ion-input>
+          <ion-input type="text" formControlName="nomeEmpresa" name="nomeEmpresa" required></ion-input>
       </ion-item>
       <ion-item>
           <ion-label position="floating">Razão:</ion-label>
@@ -22,7 +22,7 @@
       </ion-item>
       <ion-item>
           <ion-label>Ramo</ion-label>
-            <ion-select placeholder="Selecione o setor" formControlName="ramoEmpresa">
+            <ion-select placeholder="Selecione o setor" formControlName="ramoEmpresa" required>
               <ion-select-option value="Educacional">Educacional</ion-select-option>
               <ion-select-option value="Tecnológico">Tecnológico</ion-select-option>
               <ion-select-option value="Saúde">Saúde</ion-select-option>
@@ -35,11 +35,11 @@
       </ion-item>-->
       <ion-item>
           <ion-label position="floating">Cidade:</ion-label>
-          <ion-input type="text" formControlName="cidadeEmpresa" name="cidade"></ion-input>
+          <ion-input type="text" formControlName="cidadeEmpresa" name="cidade" required></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Setor</ion-label>
-          <ion-select placeholder="Selecione o setor" formControlName="idSetor">
+          <ion-select placeholder="Selecione o setor" formControlName="idSetor" required>
             <ion-select-option *ngFor="let setor of setores" [value]="setor.idSetor">
               {{setor.abreviacao}}
             </ion-select-option>
@@ -47,7 +47,7 @@
       </ion-item>
       <ion-item>
           <ion-label position="floating">Nome usuário:</ion-label>
-          <ion-input type="text" formControlName="nomeUsuario" name="nomeUser"></ion-input>
+          <ion-input type="text" formControlName="nomeUsuario" name="nomeUser" required></ion-input>
       </ion-item>
     </form>
 </ion-content>

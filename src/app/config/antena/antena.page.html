@@ -1,9 +1,35 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>antena</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
-</ion-content>
+<ion-header no-border>
+    <ion-toolbar style="background-color: #03A9F4; color: #FFFFFF;">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        Antenas
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding>
+  
+      <ion-list>
+        <ion-list-header>
+            <h5><b>LISTA DE ANTENAS</b></h5>
+        </ion-list-header>
+      </ion-list>
+  
+      <ion-item *ngFor="let item of (data)" (click)="exibeOpcoes(item.id, item.status)" fullscreen>
+        <ion-label>
+            <ion-badge color="success" *ngIf="item.status == 'EM USO'">{{ item.status }}</ion-badge>
+            <ion-badge color="secondary" *ngIf="item.status == 'DISPONÍVEL'">{{ item.status }}</ion-badge>
+            <h2>Antena {{ item.antena }}</h2>
+        </ion-label>
+      </ion-item>
+  
+      <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+          <ion-fab-button (click)="addAntena()">
+            <ion-icon name="add" style="color: white;"></ion-icon>
+          </ion-fab-button>
+      </ion-fab>
+  
+  </ion-content>
+  

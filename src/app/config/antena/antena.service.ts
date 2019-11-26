@@ -78,4 +78,34 @@ export class AntenaService {
         });
     }
 
+    getAntenaStatus(): Promise<any[]>{
+        return new Promise((resolve, reject) => {
+            this.http.get(`${environment.apiUrl}/Antena/AntenaStatus`).subscribe((response: any[]) => {
+                resolve(response);
+            }, reject =>{
+                console.log(reject);
+            });
+        });
+    }
+
+    deleteAntena(idAntena: number): Promise<any> {
+        return new Promise((resolve, reject) => {
+            this.http.post(`${environment.apiUrl}/Antena/DeleteAntena`, idAntena).subscribe((response: any) => {
+                resolve(response);
+            }, reject =>{
+                console.log(reject);
+            });
+        });
+    }
+
+    addProxAntena(): Promise<any> {
+        return new Promise((resolve, reject) => {
+            this.http.post(`${environment.apiUrl}/Antena/addProxima`, null).subscribe((response: any) => {
+                resolve(response);
+            }, reject =>{
+                console.log(reject);
+            });
+        });
+    }
+
 }

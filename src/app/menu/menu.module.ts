@@ -60,6 +60,10 @@ const routes: Routes = [
       { 
         path: 'config/empresa/:idEmpresa', 
         loadChildren: () => import('../config/add-edit-empresa/add-edit-empresa.module').then(m=>m.AddEditEmpresaPageModule) 
+      },
+      { 
+        path: 'config/antena', 
+        loadChildren: () => import('../config/antena/antena.module').then(m=>m.AntenaPageModule) 
       }
     ]
   }

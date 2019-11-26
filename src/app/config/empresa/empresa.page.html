@@ -10,6 +10,7 @@
 </ion-header>
 
 <ion-content padding>
+
     <ion-list>
       <ion-list-header>
           <h5><b>LISTA DE EMPRESAS</b></h5>
@@ -22,5 +23,11 @@
         <h3>{{ item.razao }}</h3>
       </ion-label>
     </ion-item>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button [routerLink]="['/menu/config/empresa', 'new']">
+          <ion-icon name="add" style="color: white;"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
 
 </ion-content>
