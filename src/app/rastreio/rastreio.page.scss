@@ -1,0 +1,21 @@
+.welcome-card img {
+    max-height: 35vh;
+    overflow: hidden;
+  }
+  
+  
+  ion-toolbar {
+    --background: transparent;
+    --ion-color-base: transparent !important;
+    }
+
+  ion-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    display: block;
+}

@@ -73,4 +73,8 @@ export class HomePage {
     this.data = new DadosSetor(this._homeService.data);
   }
 
+  rastrear(){
+    this.route.navigate(['/menu/rastreio']);
+  }
+
 }

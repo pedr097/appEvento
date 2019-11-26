@@ -54,7 +54,7 @@ export class MenuService {
           { title: 'Home', url: '/menu/home/adm', icon: 'home'},
           { title: 'Informações setores', url: '/menu/setores-info', icon: 'information-circle'},
           { title: 'Detalhes', url: '/menu/detalhes', icon: 'stats'},
-          { title: 'Rastrear participante', url: '/menu/home/adm', icon: 'pin'},
+          { title: 'Rastrear participante', url: '/menu/rastreio', icon: 'pin'},
           { title: 'Configurações', children: [
             {
               title: 'Setores',
