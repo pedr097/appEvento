@@ -13,7 +13,8 @@ const routes: Routes = [
     redirectTo: 'menu/login',
     pathMatch: 'full'
   },
-  { path: 'add-antena-modal', loadChildren: './config/add-antena-modal/add-antena-modal.module#AddAntenaModalPageModule' }
+  { path: 'add-antena-modal', loadChildren: './config/add-antena-modal/add-antena-modal.module#AddAntenaModalPageModule' },  { path: 'rank-pessoas-setor', loadChildren: './Rank-Pessoas/rank-pessoas-setor/rank-pessoas-setor.module#RankPessoasSetorPageModule' }
+
 
 
 

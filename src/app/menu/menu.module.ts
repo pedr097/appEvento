@@ -54,6 +54,10 @@ const routes: Routes = [
         path: 'detalhes/:idSetor',
         loadChildren: () => import('../grafico/grafico.module').then(m => m.GraficoPageModule),
       },
+      {
+        path: 'rank-pessoas/:idSetor',
+        loadChildren: () => import('../Rank-Pessoas/rank-pessoas-setor/rank-pessoas-setor.module').then(m => m.RankPessoasSetorPageModule),
+      },
       { path: 'config/empresa', 
         loadChildren: () => import('../config/empresa/empresa.module').then(m=> m.EmpresaPageModule) 
       },

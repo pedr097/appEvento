@@ -106,6 +106,19 @@ export class SetorService {
         });
     }
 
+    getRankPessoasSetor(id): Promise<any> {
+        return new Promise((resolve, reject) => {
+            this.http.get(`${environment.apiUrl}/Setor/sp_RankPessoasSetor?idSetor=${id}`).subscribe((response: any) => {
+                this.data = response;
+                this.onDataChanged.next(this.data);
+                resolve(response);
+            }, erro =>{
+                reject(erro)
+            });
+        });
+    }
+
+
     addSetor(setor: Setor): Promise<any> {
         return new Promise((resolve, reject) => {
             this.http.post(`${environment.apiUrl}/Setor`, setor).subscribe((response: any) => {

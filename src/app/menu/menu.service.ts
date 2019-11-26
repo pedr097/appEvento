@@ -79,7 +79,7 @@ export class MenuService {
           { title: 'Home', url: '/menu/home/empresa', icon: 'home'},
           { title: 'Detalhes', url: `/menu/detalhes/${this.idSetor}`, icon: 'stats'},
           { title: 'Minhas informações', url: '/menu/home/empresa', icon: 'information-circle'},
-          { title: 'Rank presença', url: '/menu/home/empresa', icon: 'trophy'},
+          { title: 'Rank presença', url: `/menu/rank-pessoas/${this.idSetor}`, icon: 'trophy'},
         ];
       }
   }
