@@ -10,5 +10,15 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-list>
+    <div *ngFor="let item of listaRank">
+        <ion-item >
+            <ion-label>
+              <h3>{{item.cliente}}</h3>
+              <p >{{item.tempo}}</p>
+              <!--<p >{{item.segundos}}</p>-->
+            </ion-label>
+        </ion-item>
+    </div>
+  </ion-list>
 </ion-content>
